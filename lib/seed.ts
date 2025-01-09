@@ -13,28 +13,16 @@ const COLLECTIONS = {
   GALLERY: config.galleriesCollectionId,
   PROPERTY: config.propertiesCollectionId,
 };
-
 const propertyTypes = [
   "House",
-  "Townhomes",
-  "Condos",
-  "Duplexes",
-  "Studios",
+  "Townhouse",
+  "Studio",
   "Villa",
-  "Apartments",
-  "Others",
+  "Apartment",
+  "Other",
 ];
 
-const facilities = [
-  "Laundry",
-  "Car Parking",
-  "Sports Center",
-  "Cutlery",
-  "Gym",
-  "Swimming pool",
-  "Wifi",
-  "Pet Center",
-];
+const facilities = ["Laundry", "Parking", "Gym", "Wifi"];
 
 function getRandomSubset<T>(
   array: T[],
@@ -166,7 +154,6 @@ async function seed() {
           type: propertyTypes[Math.floor(Math.random() * propertyTypes.length)],
           description: `This is the description for Property ${i}.`,
           address: `123 Property Street, City ${i}`,
-          geolocation: `192.168.1.${i}, 192.168.1.${i}`,
           price: Math.floor(Math.random() * 9000) + 1000,
           area: Math.floor(Math.random() * 3000) + 500,
           bedrooms: Math.floor(Math.random() * 5) + 1,
@@ -174,9 +161,10 @@ async function seed() {
           rating: Math.floor(Math.random() * 5) + 1,
           facilities: selectedFacilities,
           image: image,
-          agent: assignedAgent.$id,
-          reviews: assignedReviews.map((review) => review.$id),
-          gallery: assignedGalleries.map((gallery) => gallery.$id),
+          geolocation: `192.168.1.${i}, 192.168.1.${i}`,
+          member: assignedAgent.$id,
+          gallery: assignedGalleries.map((gallery) => gallery.$collectionId),
+          reviews: assignedReviews[0].$collectionId,
         }
       );
 

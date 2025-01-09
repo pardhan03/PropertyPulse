@@ -107,7 +107,7 @@ export async function getLatestProperties() {
 
     return result.documents;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return [];
   }
 }
