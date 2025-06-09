@@ -63,7 +63,7 @@ export async function login() {
 
     return true;
   } catch (error) {
-    console.error(error);
+    console.error(error, 'login error');
     return false;
   }
 }
@@ -73,7 +73,7 @@ export async function logout() {
     const result = await account.deleteSession("current");
     return result;
   } catch (error) {
-    console.error(error);
+    console.error(error, 'logout error');
     return false;
   }
 }
@@ -92,7 +92,7 @@ export async function getCurrentUser() {
 
     return null;
   } catch (error) {
-    console.log(error);
+    console.log(error,'User error');
     return null;
   }
 }
@@ -107,7 +107,7 @@ export async function getLatestProperties() {
 
     return result.documents;
   } catch (error) {
-    console.log(error);
+    console.log(error, 'latest properties error');
     return [];
   }
 }
@@ -146,7 +146,7 @@ export async function getProperties({
 
     return result.documents;
   } catch (error) {
-    console.error(error);
+    console.error(error, 'Properties error');
     return [];
   }
 }
@@ -161,7 +161,7 @@ export async function getPropertyById({ id }: { id: string }) {
     );
     return result;
   } catch (error) {
-    console.error(error);
+    console.error(error, 'propertyByIdError');
     return null;
   }
 }

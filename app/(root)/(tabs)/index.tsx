@@ -80,7 +80,7 @@ const Home = () => {
             <View className="flex flex-row items-center justify-between mt-5">
               <View className="flex flex-row">
                 <Image
-                  source={{ uri: user?.avatar }}
+                  source={{ uri: user?.avatar || 'https://images.unsplash.com/photo-1704726135027-9c6f034cfa41?q=80&w=1885&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}
                   className="size-12 rounded-full"
                 />
 
@@ -89,7 +89,7 @@ const Home = () => {
                     Good Morning
                   </Text>
                   <Text className="text-base font-rubik-medium text-black-300">
-                    {user?.name}
+                    {user?.name || 'Manish Pardhan'}
                   </Text>
                 </View>
               </View>

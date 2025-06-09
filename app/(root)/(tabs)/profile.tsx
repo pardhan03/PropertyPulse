@@ -72,14 +72,14 @@ const Profile = () => {
         <View className="flex flex-row justify-center mt-5">
           <View className="flex flex-col items-center relative mt-5">
             <Image
-              source={{ uri: user?.avatar }}
+              source={{ uri: user?.avatar || 'https://images.unsplash.com/photo-1704726135027-9c6f034cfa41?q=80&w=1885&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}
               className="size-44 relative rounded-full"
             />
             <TouchableOpacity className="absolute bottom-11 right-2">
               <Image source={icons.edit} className="size-9" />
             </TouchableOpacity>
 
-            <Text className="text-2xl font-rubik-bold mt-2">{user?.name}</Text>
+            <Text className="text-2xl font-rubik-bold mt-2">{user?.name || 'Manish Pardhan'}</Text>
           </View>
         </View>
 

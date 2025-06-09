@@ -22,7 +22,7 @@ const propertyTypes = [
   "Other",
 ];
 
-const facilities = ["Laundry", "Parking", "Gym", "Wifi"];
+const facilities = ["Laundary", "Parking", "Gym", "Wifi"];
 
 function getRandomSubset<T>(
   array: T[],
@@ -162,9 +162,10 @@ async function seed() {
           facilities: selectedFacilities,
           image: image,
           geolocation: `192.168.1.${i}, 192.168.1.${i}`,
-          member: assignedAgent.$id,
-          gallery: assignedGalleries.map((gallery) => gallery.$collectionId),
-          reviews: assignedReviews[0].$collectionId,
+          agent: assignedAgent.$id,
+          gallery: assignedGalleries.map((gallery) => gallery.$id),
+          reviews: assignedReviews.map((review) => review.$id),
+          
         }
       );
 
@@ -173,7 +174,7 @@ async function seed() {
 
     console.log("Data seeding completed.");
   } catch (error) {
-    console.error("Error seeding data:", error);
+    console.error(error, 'Seed functin error');
   }
 }
 
